@@ -1,4 +1,8 @@
-public class PlayerController : MonoBehaviour {
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerControllerIso : MonoBehaviour {
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private float _speed = 5;
     [SerializeField] private float _turnSpeed = 360;
@@ -20,12 +24,18 @@ public class PlayerController : MonoBehaviour {
     private void Look() {
         if (_input == Vector3.zero) return;
 
-        var rot = Quaternion.LookRotation(_input.ToIso(), Vector3.up);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, _turnSpeed * Time.deltaTime);
+        var direction = new Vector3(_input.x, 0, _input.z).ToIso();
+        if (direction != Vector3.zero) {
+            var rot = Quaternion.LookRotation(direction, Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, _turnSpeed * Time.deltaTime);
+        }
     }
 
     private void Move() {
-        _rb.MovePosition(transform.position + transform.forward * _input.normalized.magnitude * _speed * Time.deltaTime);
+        if (_input.magnitude > 0) {
+            var movement = new Vector3(_input.x, 0, _input.z).ToIso().normalized * _speed * Time.deltaTime;
+            _rb.MovePosition(transform.position + movement);
+        }
     }
 }
 
