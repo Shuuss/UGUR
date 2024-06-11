@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private Transform targetDestination;
+    [SerializeField] public Transform targetDestination;
     [SerializeField] private float speed;
 
     private Rigidbody rb;
