@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class lancement : MonoBehaviour
+public class Menu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+   public void ChangeScene(string _Ugur)
+   {
+        SceneManager.LoadScene(_Ugur);
+   }
 
-    // Update is called once per frame
-    void Update()
+   public void Quit()
+   {
+        Application.Quit();
+   }
+   public void ResetTheGame()
     {
-        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+      
     }
 }
