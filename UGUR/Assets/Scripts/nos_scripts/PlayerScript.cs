@@ -36,7 +36,6 @@ public class PlayerScript : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit raycastHit)){
         }
         float angle = Mathf.Atan2(raycastHit.point.x - transform.position.x,raycastHit.point.z- transform.position.z)*Mathf.Rad2Deg;
-        Debug.Log(angle);
         transform.rotation = Quaternion.Euler(0, angle, 0);  
     }
 }
