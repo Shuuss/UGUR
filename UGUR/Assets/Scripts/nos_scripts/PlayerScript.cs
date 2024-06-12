@@ -19,16 +19,24 @@ public class PlayerScript : MonoBehaviour
     void Update()
     {
         
-        Vector3 mouseWorlPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Debug.Log(mouseWorlPosition);
+        
 
 
         transform.position = new Vector3(x+Input.GetAxis("Vertical")*Time.deltaTime* speed + Input.GetAxis("Horizontal")*Time.deltaTime*speed,transform.position.y,z+Input.GetAxis("Vertical")*Time.deltaTime* speed - Input.GetAxis("Horizontal")*Time.deltaTime*speed);
         x= transform.position.x;
         z= transform.position.z;
+
+        FollowCursor();
         
-        Vector2 mouse = new Vector2(Input.mousePosition.x - Screen.width/2, Input.mousePosition.y- Screen.height/2);
-        float angle = Mathf.Atan2(mouse.x,mouse.y)*Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, angle+45, 0);     
+           
+    }
+
+    void FollowCursor(){
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit raycastHit)){
+        }
+        float angle = Mathf.Atan2(raycastHit.point.x - transform.position.x,raycastHit.point.z- transform.position.z)*Mathf.Rad2Deg;
+        Debug.Log(angle);
+        transform.rotation = Quaternion.Euler(0, angle, 0);  
     }
 }
