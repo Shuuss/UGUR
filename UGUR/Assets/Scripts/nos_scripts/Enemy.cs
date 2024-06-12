@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     private Character targetCharacter;
     [SerializeField] private float speed;
 
+    [SerializeField] GameObject exp;
+
     private Rigidbody rb;
 
     [SerializeField] private int hp = 100;
@@ -26,7 +28,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -73,5 +75,10 @@ public class Enemy : MonoBehaviour
         rot.x = 0;
         rot.z = 0;
         transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, 500 * Time.deltaTime);
+    }
+
+    void OnDestroy(){
+        Instantiate(exp, transform.position, transform.rotation);
+
     }
 }

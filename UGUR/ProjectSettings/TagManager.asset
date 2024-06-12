@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Target
   - Enemy
+  - ennemy
+  - exp
   layers:
   - Default
   - TransparentFX

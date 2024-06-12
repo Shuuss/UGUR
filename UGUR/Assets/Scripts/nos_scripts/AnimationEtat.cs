@@ -8,7 +8,6 @@ public class AnimationEtat : MonoBehaviour
     Animator animator;
     float currentAngle;
 
-    [SerializeField] float speed;
     [SerializeField] Transform spawnPoint;
     [SerializeField] GameObject slashPrefab;
     // Start is called before the first frame update
