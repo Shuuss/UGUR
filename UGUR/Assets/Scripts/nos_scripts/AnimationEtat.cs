@@ -127,13 +127,12 @@ public class AnimationEtat : MonoBehaviour
         timer -= Time.deltaTime;
         if (timer < 0f)
         {
-            weapon.attackStance = true;
             Attack();
         }
-        else if (weapon.attackStance && !animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+        /*else if (weapon.attackStance && !animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
         {
             weapon.attackStance = false;
-        }
+        }*/
         else
         {
             animator.SetBool("attack",false);
@@ -144,13 +143,24 @@ public class AnimationEtat : MonoBehaviour
     private void Attack()
     {
         animator.SetBool("attack",true);
-        Debug.Log(animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"));
         animatorinfo = this.animator.GetCurrentAnimatorClipInfo(0);
         ParticleSystem parts = slashPrefab.GetComponent<ParticleSystem>();
         float totalDuration = parts.duration + parts.startLifetime;
+        StartCoroutine(Stance(totalDuration));
+        Debug.Log(weapon.attackStance);
         Destroy(Instantiate(slashPrefab, spawnPoint.position, spawnPoint.rotation * slashPrefab.transform.rotation, spawnPoint.transform), totalDuration);
         timer = frequency;
         
 
+    }
+    
+    private IEnumerator Stance(float duration)
+    {
+        weapon.attackStance = false;
+        yield return new WaitForSeconds(duration);
+        weapon.attackStance = true;
+        yield return new WaitForSeconds(duration);
+        weapon.attackStance = false;
+        
     }
 }
