@@ -78,7 +78,9 @@ public class Enemy : MonoBehaviour
     }
 
     void OnDestroy(){
+        Debug.Log(transform.position);
         Instantiate(exp, transform.position, transform.rotation);
+        
 
     }
 }

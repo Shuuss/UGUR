@@ -19,7 +19,6 @@ public class Aimant : MonoBehaviour
     void OnTriggerStay(Collider collider)
     {
         if (collider.gameObject.tag == "exp"){
-            Debug.Log("attrabe");
             var exp = collider.gameObject;
             Rigidbody rb = exp.GetComponent<Rigidbody>();
             Vector3 direction = new Vector3(transform.position.x - exp.transform.position.x,

@@ -2570,6 +2570,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetDestination: {fileID: 0}
   speed: 5
+  exp: {fileID: 1425561775311215239, guid: 6a4165db228e1574a81614319863a1c6, type: 3}
   hp: 100
   damage: 10
 --- !u!1 &5519115115684334067
