@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AnimationEtat : MonoBehaviour
 {
     Animator animator;
     float currentAngle;
+
+    [SerializeField] float speed;
+    [SerializeField] Transform spawnPoint;
+    [SerializeField] GameObject slashPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -110,6 +115,16 @@ public class AnimationEtat : MonoBehaviour
         }
         if (!droite){
             animator.SetBool("aDroite",false);
+        }
+        // attack
+        if (Input.GetMouseButtonDown(0)){
+            animator.SetBool("attack",true);
+            ParticleSystem parts = slashPrefab.GetComponent<ParticleSystem>();
+            float totalDuration = parts.duration + parts.startLifetime;
+            Destroy(Instantiate(slashPrefab, spawnPoint.position, spawnPoint.rotation * slashPrefab.transform.rotation, spawnPoint.transform), totalDuration);
+        }
+        if (!Input.GetMouseButtonDown(0)){
+            animator.SetBool("attack",false);
         }
     }
 }

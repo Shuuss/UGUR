@@ -70,6 +70,8 @@ public class Enemy : MonoBehaviour
     private void Look(Vector3 direction) {
 
         var rot = Quaternion.LookRotation(direction, Vector3.up);
+        rot.x = 0;
+        rot.z = 0;
         transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, 500 * Time.deltaTime);
     }
 }
