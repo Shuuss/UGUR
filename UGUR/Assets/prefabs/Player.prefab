@@ -2202,6 +2202,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c8f4d63a37ef0d4ab3fb72b8f2272c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
+  spawnPoint: {fileID: 0}
+  slashPrefab: {fileID: 2060900179291159282, guid: f861f2611d512474db422e50aa7cec66, type: 3}
 --- !u!114 &6258158136015333998
 MonoBehaviour:
   m_ObjectHideFlags: 0

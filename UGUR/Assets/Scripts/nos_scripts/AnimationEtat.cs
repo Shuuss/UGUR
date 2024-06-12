@@ -7,6 +7,13 @@ public class AnimationEtat : MonoBehaviour
 {
     Animator animator;
     float currentAngle;
+    
+    AnimatorClipInfo[] animatorinfo;
+    string current_animation;
+    
+    [SerializeField] float frequency;
+    private float timer;
+    private DamageDealer weapon;
 
     [SerializeField] Transform spawnPoint;
     [SerializeField] GameObject slashPrefab;
@@ -15,6 +22,7 @@ public class AnimationEtat : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         currentAngle = transform.rotation.eulerAngles.y;
+        weapon = this.GetComponentInChildren<DamageDealer>();
 
     }
 
@@ -116,14 +124,33 @@ public class AnimationEtat : MonoBehaviour
             animator.SetBool("aDroite",false);
         }
         // attack
-        if (Input.GetMouseButtonDown(0)){
-            animator.SetBool("attack",true);
-            ParticleSystem parts = slashPrefab.GetComponent<ParticleSystem>();
-            float totalDuration = parts.duration + parts.startLifetime;
-            Destroy(Instantiate(slashPrefab, spawnPoint.position, spawnPoint.rotation * slashPrefab.transform.rotation, spawnPoint.transform), totalDuration);
+        timer -= Time.deltaTime;
+        if (timer < 0f)
+        {
+            weapon.attackStance = true;
+            Attack();
         }
-        if (!Input.GetMouseButtonDown(0)){
+        else if (weapon.attackStance && !animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+        {
+            weapon.attackStance = false;
+        }
+        else
+        {
             animator.SetBool("attack",false);
         }
+        
+    }
+
+    private void Attack()
+    {
+        animator.SetBool("attack",true);
+        Debug.Log(animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"));
+        animatorinfo = this.animator.GetCurrentAnimatorClipInfo(0);
+        ParticleSystem parts = slashPrefab.GetComponent<ParticleSystem>();
+        float totalDuration = parts.duration + parts.startLifetime;
+        Destroy(Instantiate(slashPrefab, spawnPoint.position, spawnPoint.rotation * slashPrefab.transform.rotation, spawnPoint.transform), totalDuration);
+        timer = frequency;
+        
+
     }
 }

@@ -19575,7 +19575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duree: 3
-  damage: 50
+  damage: 25
 --- !u!136 &8238104574599920286
 CapsuleCollider:
   m_ObjectHideFlags: 0

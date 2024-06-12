@@ -2570,6 +2570,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetDestination: {fileID: 0}
   speed: 5
+  expDrop: 50
   hp: 100
   damage: 10
 --- !u!1 &5519115115684334067
