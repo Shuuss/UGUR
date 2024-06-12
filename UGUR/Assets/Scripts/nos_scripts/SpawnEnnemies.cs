@@ -18,7 +18,7 @@ public class SpawnEnnemies : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -40,7 +40,7 @@ public class SpawnEnnemies : MonoBehaviour
         
         GameObject newEnemy = Instantiate(enemy, transform, true);
         newEnemy.transform.position = position;
-        newEnemy.GetComponent<Enemy>().targetDestination = target;
+        newEnemy.GetComponent<Enemy>().targetDestination = target ;
     }
 
     private Vector3 GenerateRandomPosition()

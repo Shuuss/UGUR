@@ -32,6 +32,7 @@ public class Enemy : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 direction = (targetDestination.position - transform.position).normalized;
+        direction.y -= 2;
         rb.velocity = direction * speed;
     }
 
