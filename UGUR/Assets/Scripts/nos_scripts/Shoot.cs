@@ -12,7 +12,6 @@ public class Shoot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         
     }
 
@@ -21,8 +20,7 @@ public class Shoot : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Shoot");
-            var bullet = Instantiate(bulletPrefab, spawnPoint.position, spawnPoint.rotation);
+            var bullet = Instantiate(bulletPrefab, spawnPoint.position, spawnPoint.rotation * bulletPrefab.transform.rotation);
             bullet.GetComponent<Rigidbody>().velocity = spawnPoint.forward * speed;
         }
     }

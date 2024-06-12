@@ -14,6 +14,7 @@ public class FollowCam : MonoBehaviour
         diffX = transform.position.x - obj.transform.position.x;
         diffY = transform.position.y - obj.transform.position.y;
         diffZ = transform.position.z - obj.transform.position.z; 
+
     }
 
     // Update is called once per frame

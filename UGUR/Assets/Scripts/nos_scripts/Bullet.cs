@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour
 
     }
     void OnCollisionEnter(Collision collision){
-        if (collision.gameObject.name != "Player" && collision.gameObject.name != "sol")
+        if (collision.gameObject.tag == "ennemy" )
         {
             Destroy(collision.gameObject);
             Destroy(gameObject);

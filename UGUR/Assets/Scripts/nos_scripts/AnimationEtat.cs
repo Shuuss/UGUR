@@ -5,10 +5,13 @@ using UnityEngine;
 public class AnimationEtat : MonoBehaviour
 {
     Animator animator;
+    float currentAngle;
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        currentAngle = transform.rotation.eulerAngles.y;
+
     }
 
     // Update is called once per frame
@@ -19,7 +22,7 @@ public class AnimationEtat : MonoBehaviour
         bool gauche = false;
         bool droite = false;
 
-        float angle = transform.rotation.eulerAngles.y;
+        float angle = transform.rotation.eulerAngles.y-currentAngle;
         bool orienteAvant = (angle < 45) || (angle > 315);
         bool orienteArriere = (angle < 225) && (angle > 135);
         bool orienteGauche = (angle > 225) && (angle < 315);
