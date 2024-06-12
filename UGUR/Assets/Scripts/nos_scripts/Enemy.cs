@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] public Transform targetDestination;
+    public Transform targetDestination;
     private GameObject targetGameObject;
     private Character targetCharacter;
     [SerializeField] private float speed;
@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        targetDestination = GameObject.FindWithTag("Player").transform;
         targetGameObject = targetDestination.gameObject;
     }
 
@@ -31,8 +32,10 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector3 direction = (targetDestination.position - transform.position).normalized;
-        direction.y -= 2;
+        Vector3 direction = new Vector3(targetDestination.position.x - transform.position.x,
+            targetDestination.position.y - transform.position.y-2,
+            targetDestination.position.z - transform.position.z).normalized;
+        //(targetDestination.position - transform.position).normalized;
         rb.velocity = direction * speed;
     }
 
@@ -48,15 +51,15 @@ public class Enemy : MonoBehaviour
     {
         if (targetCharacter == null)
         {
-            targetCharacter = targetGameObject.GetComponent<Character>();
+            targetCharacter = GameObject.FindWithTag("Player").GetComponent<Character>();
         }
         
         targetCharacter.TakeDamage(damage);
     }
 
-    public void TakeDamage()
+    public void TakeDamage(int damageReceived)
     {
-        hp -= damage;
+        hp -= damageReceived;
 
         if (hp < 1)
         {

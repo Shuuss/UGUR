@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SpawnEnnemies : MonoBehaviour
 {
-    [SerializeField] private Transform target;
+    private Transform target;
 
     [SerializeField] private GameObject enemy;
 
@@ -18,7 +18,7 @@ public class SpawnEnnemies : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        target = GameObject.FindWithTag("Player").transform;
     }
 
     // Update is called once per frame
@@ -36,7 +36,7 @@ public class SpawnEnnemies : MonoBehaviour
     {
         Vector3 position = GenerateRandomPosition();
         
-        position += target.transform.position;
+        position += target.transform.position - new Vector3(0,-0.2f,0);
         
         GameObject newEnemy = Instantiate(enemy, transform, true);
         newEnemy.transform.position = position;
