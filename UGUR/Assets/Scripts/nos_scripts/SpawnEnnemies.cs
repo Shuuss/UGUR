@@ -36,7 +36,7 @@ public class SpawnEnnemies : MonoBehaviour
     {
         Vector3 position = GenerateRandomPosition();
         
-        position += target.transform.position - new Vector3(0,-0.2f,0);
+        position += target.transform.position - new Vector3(0,0.8f,0);
         
         GameObject newEnemy = Instantiate(enemy, transform, true);
         newEnemy.transform.position = position;

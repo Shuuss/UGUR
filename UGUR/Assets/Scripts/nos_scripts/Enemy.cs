@@ -37,6 +37,7 @@ public class Enemy : MonoBehaviour
             targetDestination.position.z - transform.position.z).normalized;
         //(targetDestination.position - transform.position).normalized;
         rb.velocity = direction * speed;
+        Look(direction);
     }
 
     private void OnCollisionStay(Collision collision)
@@ -65,5 +66,10 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    private void Look(Vector3 direction) {
+
+        var rot = Quaternion.LookRotation(direction, Vector3.up);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, 500 * Time.deltaTime);
     }
 }
