@@ -26,13 +26,10 @@ public class HitFlash : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)){
-            Hit();
-            Invoke("NoHit",flashTime);
-        }
+        
     }
 
-    void Hit(){
+    public void Hit(){
         foreach (Transform child in lesEnfants)
         {
             SkinnedMeshRenderer mesh= child.GetComponent<SkinnedMeshRenderer>();
@@ -41,6 +38,7 @@ public class HitFlash : MonoBehaviour
                 material.color = Color.red;
             }
         }
+        Invoke("NoHit",flashTime);
     }
 
     void NoHit(){

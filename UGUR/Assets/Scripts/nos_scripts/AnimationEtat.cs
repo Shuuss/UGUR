@@ -147,7 +147,6 @@ public class AnimationEtat : MonoBehaviour
         ParticleSystem parts = slashPrefab.GetComponent<ParticleSystem>();
         float totalDuration = parts.duration + parts.startLifetime;
         StartCoroutine(Stance(totalDuration));
-        Debug.Log(weapon.attackStance);
         Destroy(Instantiate(slashPrefab, spawnPoint.position, spawnPoint.rotation * slashPrefab.transform.rotation, spawnPoint.transform), totalDuration);
         timer = frequency;
         
@@ -156,11 +155,11 @@ public class AnimationEtat : MonoBehaviour
     
     private IEnumerator Stance(float duration)
     {
-        weapon.attackStance = false;
+        weapon.AttackStance = false;
         yield return new WaitForSeconds(0.1f);
-        weapon.attackStance = true;
+        weapon.AttackStance = true;
         yield return new WaitForSeconds(duration+0.1f);
-        weapon.attackStance = false;
+        weapon.AttackStance = false;
         
     }
 }

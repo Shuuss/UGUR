@@ -82,6 +82,8 @@ public class Enemy : MonoBehaviour
     {
         hp -= damageReceived;
         
+        GetComponent<HitFlash>().Hit();
+        
         if (!isKnockedBack)
         {
             Vector3 direction = new Vector3(-(targetDestination.position.x - transform.position.x),

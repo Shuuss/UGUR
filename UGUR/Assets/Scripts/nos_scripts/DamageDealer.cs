@@ -5,12 +5,11 @@ using UnityEngine;
 public class DamageDealer : MonoBehaviour
 {
     [SerializeField] private int damage;
-    public bool attackStance = true;
+    private bool attackStance = true;
     
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -18,16 +17,37 @@ public class DamageDealer : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter(Collider other)
+
+    private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy") && attackStance)
+
+        if (other.gameObject.CompareTag("Enemy"))
         {
+            //Debug.Log("ennemy " + attackStance);
+
+        }
+
+        if (other.gameObject.CompareTag("Enemy") && AttackStance)
+        {
+            //Debug.Log("dégats");
             Enemy enemy = other.gameObject.GetComponent<Enemy>();
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
-                Debug.Log("toucheyy");
             }
         }
+    }
+
+    public bool AttackStance
+    {
+        get
+        {
+            return this.attackStance;
+        }
+        set
+        {
+            this.attackStance = value;
+        }
+    
     }
 }

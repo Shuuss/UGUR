@@ -11,6 +11,9 @@ TagManager:
   - ExpBar
   - HealthBar
   - ExpDrop
+  - timer
+  - FxTemporaire
+  - menu
   layers:
   - Default
   - TransparentFX
