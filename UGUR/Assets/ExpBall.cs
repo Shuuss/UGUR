@@ -8,7 +8,7 @@ public class ExpBall : MonoBehaviour
 {
     [SerializeField] private int qteExp;
 
-    public void OnCollisionEnter(Collision other)
+    public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject == GameObject.FindWithTag("Player"))
         {

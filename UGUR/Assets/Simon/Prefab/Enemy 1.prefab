@@ -2473,6 +2473,7 @@ GameObject:
   - component: {fileID: 4657842134034960192}
   - component: {fileID: 4657842134034960195}
   - component: {fileID: -3011559429816180605}
+  - component: {fileID: 5757886170140412376}
   m_Layer: 0
   m_Name: Enemy 1
   m_TagString: Enemy
@@ -2573,6 +2574,19 @@ MonoBehaviour:
   exp: {fileID: 1425561775311215239, guid: 6a4165db228e1574a81614319863a1c6, type: 3}
   hp: 100
   damage: 10
+--- !u!114 &5757886170140412376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5504123802592051331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed47b7d235bc3e042ad55601e42c2433, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashTime: 1
 --- !u!1 &5519115115684334067
 GameObject:
   m_ObjectHideFlags: 0
