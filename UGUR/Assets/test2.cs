@@ -8,6 +8,7 @@ public class test2 : MonoBehaviour
     [SerializeField] float speed = 2;
     [SerializeField] float radius = 1;
     [SerializeField] float angle = 0;
+    [SerializeField] float hauteur=1;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,7 @@ public class test2 : MonoBehaviour
         
         // Truc qui tourne
         float x = target.position.x + Mathf.Cos(angle) * radius;
-        float y = target.position.y;
+        float y = target.position.y+ hauteur;
         float z = target.position.z + Mathf.Sin(angle) * radius;
 
         transform.position = new Vector3(x,y,z);
