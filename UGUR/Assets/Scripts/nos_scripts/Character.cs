@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Character : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class Character : MonoBehaviour
     
     public int maxHp = 1000;
 
-    public int currentHp = 1000;
+    public int currentHp = 920;
     
     public int maxExp = 1000;
 
@@ -47,8 +48,9 @@ public class Character : MonoBehaviour
     {
         currentHp -= damage;
 
-        if (currentHp <= 0)
+        if (currentHp <= 20)
         {
+            SceneManager.LoadScene("GameOver");
             //Debug.Log("Le personnage est mort PERDU");
         }
         hpBar.UpdateHealthBar(currentHp,maxHp);

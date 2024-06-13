@@ -110,7 +110,7 @@ public class Enemy : MonoBehaviour
     }
 
     void OnDestroy(){
-        Debug.Log(transform.position);
+        if(!this.gameObject.scene.isLoaded) return;
         Vector3 pos = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
         Instantiate(exp, pos, transform.rotation);
         

@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/EcranAccueil.unity
+    guid: caa09d917b17cc14081ba39fb058c35d
+  - enabled: 1
     path: Assets/Scenes/Tanguy.unity
     guid: 4733bc6211f894a449414bae49dfe9b9
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 7269ba1145692f242845bfd7fd4b569e
   m_configObjects: {}
