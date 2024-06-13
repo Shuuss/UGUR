@@ -13,7 +13,7 @@ public class SoundManager : MonoBehaviour
     private void Start()
     {   if(PlayerPrefs.HasKey("musicVolume"))
         {
-                Load();
+            Load();
         }
         else
         {
