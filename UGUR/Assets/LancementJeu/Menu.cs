@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-   public void ChangeScene(string _Ugur)
+   public void ChangeScene(string Tanguy)
    {
-        SceneManager.LoadScene(_Ugur);
+        SceneManager.LoadScene(Tanguy);
    }
 
    public void Quit()
@@ -16,7 +16,7 @@ public class Menu : MonoBehaviour
    }
    public void ResetTheGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("Tanguy");
       
     }
 }
