@@ -38,7 +38,7 @@ public class HitFlash : MonoBehaviour
             SkinnedMeshRenderer mesh= child.GetComponent<SkinnedMeshRenderer>();
             foreach (Material material in mesh.materials)
             {
-                material.color = Color.white;
+                material.color = Color.red;
             }
         }
     }
