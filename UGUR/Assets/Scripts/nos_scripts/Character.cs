@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    [SerializeField] AudioSource src;
+    [SerializeField] private AudioClip collectSound;
+    
     public int maxHp = 1000;
 
     public int currentHp = 1000;
@@ -15,6 +18,11 @@ public class Character : MonoBehaviour
     public StatusBar hpBar;
 
     public ExpBar expBar;
+
+    public int level;
+    
+    [SerializeField] private GameObject levelUp;
+    [SerializeField] Transform LevelUpSpawnPoint;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +33,14 @@ public class Character : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (currentExp >= maxExp)
+        {
+            level += 1;
+            src.clip = collectSound;
+            src.Play();
+            Instantiate(levelUp, LevelUpSpawnPoint.position,LevelUpSpawnPoint.rotation * levelUp.transform.rotation,LevelUpSpawnPoint.transform);
+            currentExp = 0;
+        }
     }
 
     public void TakeDamage(int damage)

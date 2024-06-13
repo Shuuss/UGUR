@@ -9760,7 +9760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48d176d55b75f1d4cb1202e3ee400e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 200
+  damage: 50
   attackStance: 1
 --- !u!54 &-389053450515256020
 Rigidbody:
@@ -9788,10 +9788,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.21334341
+  m_Radius: 0.30120826
   m_Height: 4.203827
   m_Direction: 1
-  m_Center: {x: 0, y: 0.9863028, z: 0.000000014901161}
+  m_Center: {x: 0, y: 0.98630285, z: -0.008407831}
 --- !u!1 &1963275604197132
 GameObject:
   m_ObjectHideFlags: 0

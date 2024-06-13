@@ -157,9 +157,9 @@ public class AnimationEtat : MonoBehaviour
     private IEnumerator Stance(float duration)
     {
         weapon.attackStance = false;
-        yield return new WaitForSeconds(duration);
+        yield return new WaitForSeconds(0.1f);
         weapon.attackStance = true;
-        yield return new WaitForSeconds(duration);
+        yield return new WaitForSeconds(duration+0.1f);
         weapon.attackStance = false;
         
     }

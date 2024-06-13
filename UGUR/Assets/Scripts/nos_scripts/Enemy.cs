@@ -10,7 +10,6 @@ public class Enemy : MonoBehaviour
     private GameObject targetGameObject;
     private Character targetCharacter;
     [SerializeField] private float speed;
-    [SerializeField] private int expDrop;
 
     [SerializeField] GameObject exp;
 
@@ -98,8 +97,6 @@ public class Enemy : MonoBehaviour
         
         if (hp < 1)
         {   
-            targetCharacter.currentExp += expDrop;
-            targetCharacter.expBar.UpdateExpBar(targetCharacter.currentExp,targetCharacter.maxExp);
             Destroy(gameObject);
         }
         
@@ -114,7 +111,8 @@ public class Enemy : MonoBehaviour
 
     void OnDestroy(){
         Debug.Log(transform.position);
-        Instantiate(exp, transform.position, transform.rotation);
+        Vector3 pos = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
+        Instantiate(exp, pos, transform.rotation);
         
 
     }

@@ -2571,6 +2571,7 @@ MonoBehaviour:
   targetDestination: {fileID: 0}
   speed: 5
   expDrop: 50
+  exp: {fileID: 3084404182195227050, guid: 9fc62a64fd273f240aea3c3dfaf38579, type: 3}
   hp: 100
   damage: 10
 --- !u!1 &5519115115684334067

@@ -8,6 +8,9 @@ TagManager:
   - Enemy
   - ennemy
   - exp
+  - ExpBar
+  - HealthBar
+  - ExpDrop
   layers:
   - Default
   - TransparentFX

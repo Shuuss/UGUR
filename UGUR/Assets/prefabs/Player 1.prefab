@@ -306,7 +306,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frequency: 1
-  speed: 0
   spawnPoint: {fileID: 2120234349095062350}
   slashPrefab: {fileID: 2060900179291159282, guid: 14ae54fd82fefb94fbff60c8485ab54b, type: 3}
 --- !u!114 &2120234348702377144
@@ -356,6 +355,8 @@ MonoBehaviour:
   currentExp: 0
   hpBar: {fileID: 0}
   expBar: {fileID: 0}
+  level: 0
+  levelUp: {fileID: 7155335147208632822, guid: 97c43495f80a3244fad1301dfafbe252, type: 3}
 --- !u!1 &1326755894110712560
 GameObject:
   m_ObjectHideFlags: 0
