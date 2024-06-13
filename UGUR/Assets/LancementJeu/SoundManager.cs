@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour
@@ -11,7 +10,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private Slider volumeSlider;
 
     private void Start()
-    {   if(PlayerPrefs.HasKey("musicVolume"))
+    {   if(PlayerPrefs.HasKey("music"))
         {
             Load();
         }
@@ -25,18 +24,18 @@ public class SoundManager : MonoBehaviour
     public void SetChangeVolume()
     {
         float volume = volumeSlider.value;
-        myMixer.SetFloat("musicVolume", Mathf.Log10(volume)*20);
-        PlayerPrefs.SetFloat("musicVolume", volume);
+        myMixer.SetFloat("music", Mathf.Log10(volume)*20);
+        PlayerPrefs.SetFloat("music", volume);
     }
 
     private void Load()
     {
-        volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
+        volumeSlider.value = PlayerPrefs.GetFloat("music");
         SetChangeVolume();
     }
 
     private void Save()
     {
-        PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
+        PlayerPrefs.SetFloat("music", volumeSlider.value);
     }
 }
